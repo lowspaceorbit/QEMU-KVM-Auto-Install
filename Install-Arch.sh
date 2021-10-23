@@ -1,19 +1,19 @@
 #!/bin/bash
-# _   _ _____ 
-#| | | |_   _|
-#| | | | | |  
-#| |_| | | |  
-# \___/  |_| 
+#  ____ _____
+# / ___| ____|
+#| |  _|  _|
+#| |_| | |___
+# \____|_____|
 
 
+#this is a script that installs QEMU/KVM and everything else you will Need for a VM on Arch or An Arch Based Distro
 
 
+# Installing All The PKGS
 
+sudo pacman -S libvirt libvirt-glib libvirt-python virt-install virt-manager qemu qemu-arch-extra ovmf vde2 ebtables dnsmasq bridge-utils openbsd-netcat iptables swtpm
 
-
-
-
-sudo pacman -S libvirt libvirt-glib libvirt-python virt-install virt-manager qemu qemu-arch-extra ovmf vde2 ebtables dnsmasq bridge-utils openbsd-netcat iptables;
+# starting LibVirt and VirtLog
 
 sudo systemctl enable libvirtd.service;
 
@@ -23,11 +23,13 @@ sudo enable virtlogd.socket
 
 sudo start virtlogd.socket
 
-mkdir ~/Network-for-KVM;
+# making br10 NetWork for VMs
 
-cd ~/Network-for-KVM;
+mkdir ~/Network-For-KVM
 
-touch br11.xml;
+cd ~/Network-For-KVM
+
+touch br10.xml
 
 echo '<network>
   <name>br10</name>
@@ -42,11 +44,11 @@ echo '<network>
       <range start=192.168.30.50 end=192.168.30.200/>
     </dhcp>
   </ip>
-</network>' > Network.xml;
+</network>' > Network.xml
 
-cd ~ 
+cd ~
 
-touch br11.xml;
+touch br10.xml
 
 echo '<network>
 <name>br10</name>
@@ -61,162 +63,16 @@ echo '<network>
 <range start="192.168.30.50" end="192.168.30.200"/>
 </dhcp>
 </ip>
-</network>' > br11.xml;
+</network>' > br10.xml
+
+# Starting the NetWorks
 
 sudo virsh net-define br11.xml
 
-sudo virsh net-start br10
+sudo virsh net-start br11
 
-sudo virsh net-autostart br10
+sudo virsh net-autostart br11
 
 sudo virsh net-start default
 
-sudo virsh net-autostart default
-
-
-
-
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo -
-echo FINISHED Just Reboot And You Can Use KVM/QEMU
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+sudo virsh net-autostart default %
