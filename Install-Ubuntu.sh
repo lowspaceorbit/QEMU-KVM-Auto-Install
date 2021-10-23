@@ -11,7 +11,7 @@
 
 # Installing All the PKGS
 
-sudo apt install libvirt libvirt-glib libvirt-python virt-install virt-manger qemu ovmf vde2 ebtables dnsmasq  bridge-utils openbsd-netcat iptables swtmp
+sudo apt-get install libvirt libvirt-glib libvirt-python virt-install virt-manger qemu ovmf vde2 ebtables dnsmasq  bridge-utils openbsd-netcat iptables swtmp
 
 # starting LibVirt and VirtLog
 
