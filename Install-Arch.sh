@@ -6,14 +6,13 @@
 # \____|_____|
 
 
-#this is a script that installs QEMU/KVM and everything else you will Need for a VM on Arch or An Arch Based Distro
+## this is a script that installs QEMU/KVM and everything else you will Need for a VM on Arch or An Arch Based Distro
 
-
-# Installing All The PKGS
+## Installing everything needed
 
 sudo pacman -S libvirt libvirt-glib libvirt-python virt-install virt-manager qemu qemu-arch-extra ovmf vde2 ebtables dnsmasq bridge-utils openbsd-netcat iptables swtpm
 
-# starting LibVirt and VirtLog
+## starting LibVirt
 
 sudo systemctl enable libvirtd.service;
 
@@ -23,7 +22,7 @@ sudo enable virtlogd.socket
 
 sudo start virtlogd.socket
 
-# making br10 NetWork for VMs
+## seting up the NetWork
 
 mkdir ~/Network-For-KVM
 
@@ -65,7 +64,7 @@ echo '<network>
 </ip>
 </network>' > br10.xml
 
-# Starting the NetWorks
+## turning on the Networks
 
 sudo virsh net-define br11.xml
 
@@ -76,3 +75,10 @@ sudo virsh net-autostart br11
 sudo virsh net-start default
 
 sudo virsh net-autostart default %
+
+## end MSG
+
+echo -
+echo -
+echo -
+echo FINISHED Just Reboot And You Can Use KVM/QEMU
