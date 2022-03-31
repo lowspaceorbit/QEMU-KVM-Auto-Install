@@ -24,8 +24,9 @@ sudo virsh net-autostart default
 
 # Fixing Virsh
 
-sudo cp -r libvirtd.conf /etc/libvirt/libvirt.conf
-sudo cp -r libvirtd.conf ~/.config/libvirt/libvirt.conf
+mkdir /etc/libvirt
+sudo cp -r libvirt.conf /etc/libvirt/libvirt.conf
+cp -r libvirt.conf ~/.config/libvirt/libvirt.conf
 
 # end MSG
 
