@@ -18,8 +18,8 @@ cp -r libvirt.conf ~/.config/libvirt/libvirt.conf
 echo "A reboot is needed,type 'y' to reboot now and 'n' to reboot later"
 read yn
 if [ $yn = 'y' ] || [ $yn = 'Y' ]
-  then
-    reboot
-  else
-  echo "done, just reboot and your good to go!"
+then
+reboot
+else
+echo "done, just reboot and your good to go!"
 fi
