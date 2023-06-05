@@ -21,5 +21,5 @@ if [ $yn = 'y' ] || [ $yn = 'Y' ]
 then
 reboot
 else
-echo "done, just reboot and your good to go!"
+echo "done, just reboot and you're good to go!"
 fi
